@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block js_content %}
+<script>
+$(document).ready(function () {
+    // This function gets cookie with a given name
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !=''){
+            var cookies = document.cookie.split(';');
+            for (var i=0; i<cookies.length; i++){
+                var cookie = jQuery.trim((cookies[i]));
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0,name.length +1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = getCookie('csrftoken');
+    /*
+    The functions below will create a header with csrftoken
+    */
+    function csrfSafeMethod(method) {
+        // these HTTP method do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    function sameOrigin(url) {
+        // test that a given url is a same-origin URL
+        // url could be relative or scheme relative or absolute
+        var host = document.location.host; //host + port
+        var protocol = document.location.protocol;
+        var sr_origin = '//' + host;
+        var origin = protocol + sr_origin;
+        // Allow absolute scheme relative URLs to same origin
+        return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                        //or any other URL that isn't scheme relative or absolute i.e relative.
+                !(/^(\/\/|http:|https:).*/.test(url));
+    }
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && sameOrigin(settings.url)){
+                // Send the token to same-origin, relative URLs only.
+                // Send the token only if the method warrants CSRF protection
+                // Using the CSRFToken value acquired earlier
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+    var i = 0;
+    $('#post_dd').on('submit',function (event) {
+
+        i++;
+        event.preventDefault();
+        create_post();
+    });
+
+    // AJAX for posting
+    function create_post() {
+        console.log("create post is working");
+        console.log(window.location.href);
+        $.ajax({
+            url: "test",
+            type: "POST",
+            data: { the_post: i,the_id: $('#test123').val()},
+            success: function (json) {
+                console.log(json); // log the returned json to the console
+                console.log('success')
+            },
+            error: function (xhr, errmsg, err) {
+                $('#lab').html(errmsg+xhr.status+xhr.responseText)
+            }
+        });
+    }
+
+});
+
+</script>
+
+{% endblock %}
+{% block left_content %}
+
+    {% include 'ad.html' %}
+    <!-- banner代码 结束 -->
+    <form method="post" id="post_dd">
+    {% csrf_token %}
+        <input type="text" value="123" id="test123">
+        <input type="submit" value="submit">
+        <lable id="lab"></lable>
+    </form>
+    <div class="topnews">
+        <h2>最新文章</h2>
+        {% for article in article_list %}
+            <div class="blogs">
+                <ul>
+                    <!--标题-->
+                    <h3><a href='{% url "category" %}?index={{ article.id }}&title={{ article.title }}'>{{ article.title }}</a></h3>
+                    <!--描述-->
+                    <p>{{ article.desc }}</p>
+                    <!--标签分类-->
+                    <p class="autor"><span class="lm f_l">{% for tag in article.tag.all %}<a href="/">{{ tag.name }}</a>
+                        &nbsp;</span>{% endfor %}
+                        <!--发布时间-->
+                        <span class="dtime f_l">{{ article.date_publish | date:'Y-m-d' }}</span>
+                        <span class="viewnum f_r">浏览（{{ article.click_count }}）</span>
+                        <!--一对多关系时加  _set  -->
+                        <span class="pingl f_r">评论（{{ article.comment_set.all.count }}）</span>
+                    </p>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    {#    分页#}
+    {% include 'pagination.html' %}
+{% endblock %}

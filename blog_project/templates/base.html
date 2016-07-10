@@ -1,0 +1,141 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jie的官方网站</title>
+    <meta name="keywords" content="{{ BLOG_NAME }}"/>
+    <meta name="description" content="{{ BLOG_INTRODUCE }}"/>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+    {% block css_content %} {% endblock %}
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/sliders.js' %}"></script>
+    {% block js_content %} {% endblock %}
+    <!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1>Python</h1>
+        <p>{{ BLOG_INTRODUCE }}</p>
+    </div>
+<!--search-->
+    <div class="search">
+{#        <input type="search" class="search-input" placeholder="请输入想搜索的内容..." autocomplete="off">#}
+        <form action="{% url 'search_value' %}" method="get">
+            {% csrf_token %}
+            {{ searchform.search }}
+            <input class="search-input" type="submit" value="搜索">
+        </form>
+    </div>
+
+    <nav id="topnav" class="f_r">
+        <ul>
+            {% for nav in nav_list %}
+
+                <a href='{% url "tag" %}?tag_name={{ nav.name }}' target="_blank">{{ nav.name }}</a>
+
+            {% endfor %}
+        </ul>
+        <script type="text/javascript" src='{% static 'js/nav.js' %}'></script>
+    </nav>
+</header>
+
+<article>
+
+    <div class="l_box f_l">
+        {% block left_content %} {% endblock %}
+    </div>
+
+    <div class="r_box f_r">
+
+        <div class="moreSelect" id="lp_right_select">
+            <script>
+                window.onload = function () {
+                    var oLi = document.getElementById("tab").getElementsByTagName("li");
+                    var oUl = document.getElementById("ms-main").getElementsByTagName("div");
+
+                    for (var i = 0; i < oLi.length; i++) {
+                        oLi[i].index = i;
+                        oLi[i].onmouseover = function () {
+                            for (var n = 0; n < oLi.length; n++) oLi[n].className = "";
+                            this.className = "cur";
+                            for (var n = 0; n < oUl.length; n++) oUl[n].style.display = "none";
+                            oUl[this.index].style.display = "block"
+                        }
+                    }
+                }
+            </script>
+            <div class="ms-top">
+                <ul class="hd" id="tab">
+                    <li class="cur"><a href="/">浏览排行</a></li>
+                    <li><a href="/">评论排行</a></li>
+                </ul>
+            </div>
+            <!--浏览-->
+            <div class="ms-main" id="ms-main">
+                <div style="display: block;" class="bd bd-news">
+                    <ul>
+                        {% for click in click_count %}
+                            <li>
+                                <a href='{% url "category" %}?index={{ click.id }}&title={{ click.title }}'>{{ click.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!--评论-->
+                <div class="bd bd-news">
+                    <ul>
+{#                                      {% for comment in article_comment_list %}#}
+{#                                          url "category"  不能用/结尾  因为后面需要参数#}
+{#                                          这里传递过去的url 为什么是用 ？ 拼接起来的？？？#}
+{#                                    <li><a href='{% url "category" %}?index={{ comment.id }}'>{{ comment.title }}</a></li>#}
+{#                                      {% endfor %}#}
+                    </ul>
+                </div>
+
+            </div>
+            <!--ms-main end -->
+        </div>
+        <!--切换卡 moreSelect end -->
+
+        <div class="cloud">
+            <h3>标签云</h3>
+            <ul>
+                {% for tag in tag_list %}
+                    <li><a href='{% url "tag" %}?tag_name={{ tag.name }}'>{{ tag.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="tuwen">
+            <h3>文章归档</h3>
+            <ul>
+                {% for essay in essay_list %}
+                    <li>
+                        <p><span class="tutime font-size-18"><a
+                                href='{% url "article" %}?year={{ essay | slice:":4" }}&month={{ essay | slice:"5:7" }}'>{{ essay }}文章归档</a></span>
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="links">
+            <h3>友情链接</h3>
+            <ul>
+                {% for link in link_list  %}
+                    <li><a href="{{ link.callback_url }}" title="{{ link.description }}" target="_blank">{{ link.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!--r_box end -->
+</article>
+<footer>
+    <p class="ft-copyright">jie的个人博客</p>
+</footer>
+<div id="tbox"><a id="gotop" href="#top"></a></div>
+</body>
+</html>

@@ -1,0 +1,723 @@
+2016-07-10 10:44:12,114 [Dummy-1:168] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:12,424 [Dummy-1:168] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:12,428 [Dummy-1:168] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SHOW FULL TABLES; args=None
+2016-07-10 10:44:12,456 [Dummy-1:168] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+2016-07-10 10:44:14,554 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:14,555 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_article`; args=()
+2016-07-10 10:44:14,558 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT AVG(`blog_ad`.`index`) AS `index__avg` FROM `blog_ad`; args=()
+2016-07-10 10:44:14,560 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT MAX(`blog_ad`.`index`) AS `index__max` FROM `blog_ad`; args=()
+2016-07-10 10:44:14,573 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:14,591 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:14,595 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC LIMIT 2; args=()
+2016-07-10 10:44:14,609 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 8 ORDER BY `blog_tag`.`id` ASC; args=(8,)
+2016-07-10 10:44:14,615 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 8; args=(8,)
+2016-07-10 10:44:14,620 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 7 ORDER BY `blog_tag`.`id` ASC; args=(7,)
+2016-07-10 10:44:14,624 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 7; args=(7,)
+2016-07-10 10:44:14,630 [Thread-2:4320] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'year' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'year'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [year] in '<QueryDict: {}>'
+2016-07-10 10:44:14,633 [Thread-2:4320] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'month' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'month'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [month] in '<QueryDict: {}>'
+2016-07-10 10:44:14,671 [Thread-2:4320] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'tag_name' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'tag_name'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [tag_name] in '<QueryDict: {}>'
+2016-07-10 10:44:14,673 [Thread-2:4320] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'search' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'search'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [search] in '<QueryDict: {}>'
+2016-07-10 10:44:14,676 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:14,681 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:14,688 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:14,691 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:14,695 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:14,699 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:14,702 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:14,705 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:14,724 [Thread-2:4320] [django.db.backends:89] [utils:execute] [DEBUG]- (0.014) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:44:18,991 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:18,996 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:19,015 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.018) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` INNER JOIN `blog_catagory` ON (`blog_article`.`category_id` = `blog_catagory`.`id`) INNER JOIN `blog_article` T3 ON (`blog_catagory`.`id` = T3.`category_id`) WHERE T3.`title` LIKE '%linux%' ORDER BY `blog_article`.`date_publish` DESC LIMIT 21; args=('%linux%',)
+2016-07-10 10:44:19,017 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_article` INNER JOIN `blog_catagory` ON (`blog_article`.`category_id` = `blog_catagory`.`id`) INNER JOIN `blog_article` T3 ON (`blog_catagory`.`id` = T3.`category_id`) WHERE T3.`title` LIKE '%linux%'; args=('%linux%',)
+2016-07-10 10:44:19,021 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:19,028 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:19,033 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:19,036 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:19,038 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:19,041 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:19,044 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:19,046 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:19,048 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:19,050 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:19,054 [Thread-3:3860] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:44:21,069 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:21,075 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:21,077 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:21,084 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:21,087 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:21,089 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) UPDATE `blog_article` SET `title` = 'python __intit__', `desc` = 'asdg', `content` = 'setut', `click_count` = (`blog_article`.`click_count` + 1), `is_recommend` = 0, `date_publish` = '2016-06-23 14:54:50.351947', `user_id` = 2, `category_id` = 17 WHERE `blog_article`.`id` = 5; args=('python __intit__', 'asdg', 'setut', 1, False, '2016-06-23 14:54:50.351947', 2, 17, 5)
+2016-07-10 10:44:21,103 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 5 ORDER BY `blog_article`.`date_publish` DESC; args=(5,)
+2016-07-10 10:44:21,106 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '2em39wmbhnady24nay91w3j72joasjvc' AND `django_session`.`expire_date` > '2016-07-10 02:44:21.104040'); args=('2em39wmbhnady24nay91w3j72joasjvc', '2016-07-10 02:44:21.104040')
+2016-07-10 10:44:21,109 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_user`.`id`, `blog_user`.`password`, `blog_user`.`last_login`, `blog_user`.`is_superuser`, `blog_user`.`username`, `blog_user`.`first_name`, `blog_user`.`last_name`, `blog_user`.`email`, `blog_user`.`is_staff`, `blog_user`.`is_active`, `blog_user`.`date_joined`, `blog_user`.`avatar`, `blog_user`.`qq`, `blog_user`.`mobile`, `blog_user`.`url` FROM `blog_user` WHERE `blog_user`.`id` = 1; args=(1,)
+2016-07-10 10:44:21,113 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_comment`.`id`, `blog_comment`.`content`, `blog_comment`.`username`, `blog_comment`.`email`, `blog_comment`.`url`, `blog_comment`.`date_publish`, `blog_comment`.`user_id`, `blog_comment`.`article_id`, `blog_comment`.`pid_id` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 5 ORDER BY `blog_comment`.`id` ASC; args=(5,)
+2016-07-10 10:44:21,119 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:21,125 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:21,129 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 5 ORDER BY `blog_tag`.`id` ASC; args=(5,)
+2016-07-10 10:44:21,131 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 5; args=(5,)
+2016-07-10 10:44:21,134 [Thread-4:5256] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'children_comment' in template 'category.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Comment' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Comment' object has no attribute 'children_comment'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'children_comment'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [children_comment] in '6'
+2016-07-10 10:44:21,137 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:21,140 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:21,142 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:21,144 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:21,147 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:21,149 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:21,151 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:21,152 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:21,156 [Thread-4:5256] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:44:23,097 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:23,101 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:23,103 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:23,106 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:23,110 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:23,114 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) UPDATE `blog_article` SET `title` = 'django css', `desc` = 'qwerlsd', `content` = '<p>\r\n	加上地方\r\n</p>\r\n<p>\r\n	<img src=\"/uploads/kindeditor/2016/7/b0bb49a2-45e3-11e6-82dc-18cf5e6b44ad.png\" alt=\"\" width=\"500\" height=\"336\" title=\"\" align=\"\" /> \r\n</p>\r\n<p>\r\n	<span style=\"background-color:#EE33EE;\">这阵的是什么鬼啊<img src=\"http://127.0.0.1:8000/static/js/kindeditor/plugins/emoticons/images/17.gif\" border=\"0\" alt=\"\" /></span> \r\n</p>\r\n<p>\r\n	<span style=\"background-color:#006600;\"></span> \r\n</p>', `click_count` = (`blog_article`.`click_count` + 1), `is_recommend` = 0, `date_publish` = '2016-07-08 07:16:48.940031', `user_id` = 9, `category_id` = 4 WHERE `blog_article`.`id` = 8; args=('django css', 'qwerlsd', '<p>\r\n\t加上地方\r\n</p>\r\n<p>\r\n\t<img src="/uploads/kindeditor/2016/7/b0bb49a2-45e3-11e6-82dc-18cf5e6b44ad.png" alt="" width="500" height="336" title="" align="" /> \r\n</p>\r\n<p>\r\n\t<span style="background-color:#EE33EE;">这阵的是什么鬼啊<img src="http://127.0.0.1:8000/static/js/kindeditor/plugins/emoticons/images/17.gif" border="0" alt="" /></span> \r\n</p>\r\n<p>\r\n\t<span style="background-color:#006600;"></span> \r\n</p>', 1, False, '2016-07-08 07:16:48.940031', 9, 4, 8)
+2016-07-10 10:44:23,167 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 8 ORDER BY `blog_article`.`date_publish` DESC; args=(8,)
+2016-07-10 10:44:23,174 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '2em39wmbhnady24nay91w3j72joasjvc' AND `django_session`.`expire_date` > '2016-07-10 02:44:23.169158'); args=('2em39wmbhnady24nay91w3j72joasjvc', '2016-07-10 02:44:23.169158')
+2016-07-10 10:44:23,182 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT `blog_user`.`id`, `blog_user`.`password`, `blog_user`.`last_login`, `blog_user`.`is_superuser`, `blog_user`.`username`, `blog_user`.`first_name`, `blog_user`.`last_name`, `blog_user`.`email`, `blog_user`.`is_staff`, `blog_user`.`is_active`, `blog_user`.`date_joined`, `blog_user`.`avatar`, `blog_user`.`qq`, `blog_user`.`mobile`, `blog_user`.`url` FROM `blog_user` WHERE `blog_user`.`id` = 1; args=(1,)
+2016-07-10 10:44:23,187 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_comment`.`id`, `blog_comment`.`content`, `blog_comment`.`username`, `blog_comment`.`email`, `blog_comment`.`url`, `blog_comment`.`date_publish`, `blog_comment`.`user_id`, `blog_comment`.`article_id`, `blog_comment`.`pid_id` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 8 ORDER BY `blog_comment`.`id` ASC; args=(8,)
+2016-07-10 10:44:23,194 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:23,220 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:23,223 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 8 ORDER BY `blog_tag`.`id` ASC; args=(8,)
+2016-07-10 10:44:23,226 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 8; args=(8,)
+2016-07-10 10:44:23,229 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:23,232 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:23,234 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:23,236 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:23,238 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:23,241 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:23,243 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:23,245 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:23,248 [Thread-5:5964] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:44:24,987 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:24,988 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:24,992 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT COUNT(*) AS `__count` FROM `blog_article` WHERE `blog_article`.`date_publish` LIKE '%2016-07%'; args=('%2016-07%',)
+2016-07-10 10:44:24,994 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:25,002 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:25,009 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:25,012 [Thread-6:5132] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'tag_name' in template 'article.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'tag_name'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [tag_name] in "<QueryDict: {'month': ['07'], 'year': ['2016']}>"
+2016-07-10 10:44:25,015 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`date_publish` LIKE '%2016-07%' ORDER BY `blog_article`.`date_publish` DESC LIMIT 1; args=('%2016-07%',)
+2016-07-10 10:44:25,018 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 8 ORDER BY `blog_tag`.`id` ASC; args=(8,)
+2016-07-10 10:44:25,020 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 8; args=(8,)
+2016-07-10 10:44:25,024 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:25,026 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:25,029 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:25,031 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:25,033 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:25,035 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:25,037 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:25,038 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:25,042 [Thread-6:5132] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:44:27,545 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:27,547 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:27,552 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT COUNT(*) AS `__count` FROM `blog_article` WHERE `blog_article`.`date_publish` LIKE '%2016-06%'; args=('%2016-06%',)
+2016-07-10 10:44:27,556 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:27,566 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:27,572 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:27,574 [Thread-7:5556] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'tag_name' in template 'article.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'tag_name'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [tag_name] in "<QueryDict: {'month': ['06'], 'year': ['2016']}>"
+2016-07-10 10:44:27,578 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`date_publish` LIKE '%2016-06%' ORDER BY `blog_article`.`date_publish` DESC LIMIT 2; args=('%2016-06%',)
+2016-07-10 10:44:27,580 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 7 ORDER BY `blog_tag`.`id` ASC; args=(7,)
+2016-07-10 10:44:27,583 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 7; args=(7,)
+2016-07-10 10:44:27,585 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 6 ORDER BY `blog_tag`.`id` ASC; args=(6,)
+2016-07-10 10:44:27,588 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 6; args=(6,)
+2016-07-10 10:44:27,591 [Thread-7:5556] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'tag_name' in template 'article.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'tag_name'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [tag_name] in "<QueryDict: {'month': ['06'], 'year': ['2016']}>"
+2016-07-10 10:44:27,592 [Thread-7:5556] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'search' in template 'article.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'search'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [search] in "<QueryDict: {'month': ['06'], 'year': ['2016']}>"
+2016-07-10 10:44:27,595 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:27,597 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:27,599 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:27,601 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:27,604 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:27,606 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:27,608 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:27,610 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:27,614 [Thread-7:5556] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:44:29,131 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:29,133 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:29,137 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT COUNT(*) AS `__count` FROM `blog_article` WHERE `blog_article`.`date_publish` LIKE '%2016-05%'; args=('%2016-05%',)
+2016-07-10 10:44:29,141 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:29,152 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:29,159 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:29,161 [Thread-8:6140] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'tag_name' in template 'article.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'tag_name'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [tag_name] in "<QueryDict: {'month': ['05'], 'year': ['2016']}>"
+2016-07-10 10:44:29,164 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`date_publish` LIKE '%2016-05%' ORDER BY `blog_article`.`date_publish` DESC LIMIT 1; args=('%2016-05%',)
+2016-07-10 10:44:29,167 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 4 ORDER BY `blog_tag`.`id` ASC; args=(4,)
+2016-07-10 10:44:29,169 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 4; args=(4,)
+2016-07-10 10:44:29,172 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:29,174 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:29,177 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:29,179 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:29,182 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:29,184 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:29,186 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:29,188 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:29,191 [Thread-8:6140] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:44:36,105 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:44:36,110 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.005) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:36,119 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.004) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:36,127 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` WHERE `blog_tag`.`name` = 'Django'; args=('Django',)
+2016-07-10 10:44:36,133 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT COUNT(*) AS `__count` FROM `blog_article` INNER JOIN `blog_article_tag` ON (`blog_article`.`id` = `blog_article_tag`.`article_id`) WHERE `blog_article_tag`.`tag_id` = 4; args=(4,)
+2016-07-10 10:44:36,145 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:44:36,157 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:44:36,172 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.012) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` INNER JOIN `blog_article_tag` ON (`blog_article`.`id` = `blog_article_tag`.`article_id`) WHERE `blog_article_tag`.`tag_id` = 4 ORDER BY `blog_article`.`date_publish` DESC LIMIT 1; args=(4,)
+2016-07-10 10:44:36,178 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 4 ORDER BY `blog_tag`.`id` ASC; args=(4,)
+2016-07-10 10:44:36,181 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 4; args=(4,)
+2016-07-10 10:44:36,181 [Thread-9:5004] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'year' in template 'article.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'year'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [year] in "<QueryDict: {'tag_name': ['Django']}>"
+2016-07-10 10:44:36,185 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:44:36,189 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:44:36,193 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:44:36,196 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:44:36,198 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:44:36,200 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:44:36,203 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:44:36,204 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:44:36,208 [Thread-9:5004] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:48:29,399 [Dummy-1:5668] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:48:29,489 [Dummy-1:5668] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:48:29,492 [Dummy-1:5668] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SHOW FULL TABLES; args=None
+2016-07-10 10:48:29,497 [Dummy-1:5668] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+2016-07-10 10:48:30,889 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:48:30,891 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT COUNT(*) AS `__count` FROM `blog_article`; args=()
+2016-07-10 10:48:30,895 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT AVG(`blog_ad`.`index`) AS `index__avg` FROM `blog_ad`; args=()
+2016-07-10 10:48:30,898 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT MAX(`blog_ad`.`index`) AS `index__max` FROM `blog_ad`; args=()
+2016-07-10 10:48:30,919 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.005) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:48:30,943 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:48:30,952 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.005) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC LIMIT 2; args=()
+2016-07-10 10:48:30,965 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 8 ORDER BY `blog_tag`.`id` ASC; args=(8,)
+2016-07-10 10:48:30,971 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 8; args=(8,)
+2016-07-10 10:48:30,975 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 7 ORDER BY `blog_tag`.`id` ASC; args=(7,)
+2016-07-10 10:48:30,980 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 7; args=(7,)
+2016-07-10 10:48:30,988 [Thread-2:2480] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'year' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'year'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [year] in '<QueryDict: {}>'
+2016-07-10 10:48:30,993 [Thread-2:2480] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'month' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'month'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [month] in '<QueryDict: {}>'
+2016-07-10 10:48:30,996 [Thread-2:2480] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'tag_name' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'tag_name'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'tag_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [tag_name] in '<QueryDict: {}>'
+2016-07-10 10:48:31,006 [Thread-2:2480] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'search' in template 'index.html'.
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 83, in __getitem__
+    list_ = super(MultiValueDict, self).__getitem__(key)
+KeyError: 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\utils\datastructures.py", line 85, in __getitem__
+    raise MultiValueDictKeyError(repr(key))
+django.utils.datastructures.MultiValueDictKeyError: "'search'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'search'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\blog_venv2-0.0\venv\lib\site-packages\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [search] in '<QueryDict: {}>'
+2016-07-10 10:48:31,011 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:48:31,043 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.027) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:48:31,061 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:48:31,065 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:48:31,071 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:48:31,075 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:48:31,081 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.003) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:48:31,084 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:48:31,092 [Thread-2:2480] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()
+2016-07-10 10:48:33,913 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:48:33,920 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SET SQL_AUTO_IS_NULL = 0; args=None
+2016-07-10 10:48:33,923 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:48:33,927 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:48:33,930 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:48:33,932 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) UPDATE `blog_article` SET `title` = 'django css', `desc` = 'qwerlsd', `content` = '<p>\r\n	加上地方\r\n</p>\r\n<p>\r\n	<img src=\"/uploads/kindeditor/2016/7/b0bb49a2-45e3-11e6-82dc-18cf5e6b44ad.png\" alt=\"\" width=\"500\" height=\"336\" title=\"\" align=\"\" /> \r\n</p>\r\n<p>\r\n	<span style=\"background-color:#EE33EE;\">这阵的是什么鬼啊<img src=\"http://127.0.0.1:8000/static/js/kindeditor/plugins/emoticons/images/17.gif\" border=\"0\" alt=\"\" /></span> \r\n</p>\r\n<p>\r\n	<span style=\"background-color:#006600;\"></span> \r\n</p>', `click_count` = (`blog_article`.`click_count` + 1), `is_recommend` = 0, `date_publish` = '2016-07-08 07:16:48.940031', `user_id` = 9, `category_id` = 4 WHERE `blog_article`.`id` = 8; args=('django css', 'qwerlsd', '<p>\r\n\t加上地方\r\n</p>\r\n<p>\r\n\t<img src="/uploads/kindeditor/2016/7/b0bb49a2-45e3-11e6-82dc-18cf5e6b44ad.png" alt="" width="500" height="336" title="" align="" /> \r\n</p>\r\n<p>\r\n\t<span style="background-color:#EE33EE;">这阵的是什么鬼啊<img src="http://127.0.0.1:8000/static/js/kindeditor/plugins/emoticons/images/17.gif" border="0" alt="" /></span> \r\n</p>\r\n<p>\r\n\t<span style="background-color:#006600;"></span> \r\n</p>', 1, False, '2016-07-08 07:16:48.940031', 9, 4, 8)
+2016-07-10 10:48:33,938 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 8 ORDER BY `blog_article`.`date_publish` DESC; args=(8,)
+2016-07-10 10:48:33,940 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '2em39wmbhnady24nay91w3j72joasjvc' AND `django_session`.`expire_date` > '2016-07-10 02:48:33.939640'); args=('2em39wmbhnady24nay91w3j72joasjvc', '2016-07-10 02:48:33.939640')
+2016-07-10 10:48:33,944 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.002) SELECT `blog_user`.`id`, `blog_user`.`password`, `blog_user`.`last_login`, `blog_user`.`is_superuser`, `blog_user`.`username`, `blog_user`.`first_name`, `blog_user`.`last_name`, `blog_user`.`email`, `blog_user`.`is_staff`, `blog_user`.`is_active`, `blog_user`.`date_joined`, `blog_user`.`avatar`, `blog_user`.`qq`, `blog_user`.`mobile`, `blog_user`.`url` FROM `blog_user` WHERE `blog_user`.`id` = 1; args=(1,)
+2016-07-10 10:48:33,947 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_comment`.`id`, `blog_comment`.`content`, `blog_comment`.`username`, `blog_comment`.`email`, `blog_comment`.`url`, `blog_comment`.`date_publish`, `blog_comment`.`user_id`, `blog_comment`.`article_id`, `blog_comment`.`pid_id` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 8 ORDER BY `blog_comment`.`id` ASC; args=(8,)
+2016-07-10 10:48:33,953 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2016-07-10 10:48:33,961 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC LIMIT 4; args=()
+2016-07-10 10:48:33,965 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 8 ORDER BY `blog_tag`.`id` ASC; args=(8,)
+2016-07-10 10:48:33,967 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 8; args=(8,)
+2016-07-10 10:48:33,972 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT id FROM blog_article ORDER BY click_count DESC; args=()
+2016-07-10 10:48:33,974 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 7; args=(7,)
+2016-07-10 10:48:33,976 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2016-07-10 10:48:33,979 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 5; args=(5,)
+2016-07-10 10:48:33,981 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 4; args=(4,)
+2016-07-10 10:48:33,983 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 6; args=(6,)
+2016-07-10 10:48:33,986 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title` FROM `blog_article` WHERE `blog_article`.`id` = 8; args=(8,)
+2016-07-10 10:48:33,988 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` ORDER BY `blog_tag`.`id` ASC; args=()
+2016-07-10 10:48:33,992 [Thread-3:5752] [django.db.backends:89] [utils:execute] [DEBUG]- (0.001) SELECT `blog_links`.`id`, `blog_links`.`title`, `blog_links`.`description`, `blog_links`.`callback_url`, `blog_links`.`date_publish`, `blog_links`.`index` FROM `blog_links` ORDER BY `blog_links`.`index` ASC, `blog_links`.`id` ASC; args=()

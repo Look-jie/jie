@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block left_content %}
+
+
+    <!-- banner代码 结束 -->
+    <div class="topnews">
+        <h2>最新文章</h2>
+        {% for article in article_list %}
+            <div class="blogs">
+                <ul>
+                    <!--标题-->
+                    <h3><a href='{% url "category" %}?index={{ article.id }}&title={{ article.title }}'>{{ article.title }}</a></h3>
+                    <!--描述-->
+                    <p>{{ article.desc }}</p>
+                    <!--标签分类-->
+                    <p class="autor"><span class="lm f_l">{% for tag in article.tag.all %}<a href='{% url "tag" %}?tag_name={{ tag.name }}'>{{ tag.name }}</a>
+                        &nbsp;</span>{% endfor %}
+                        <!--发布时间-->
+                        <span class="dtime f_l">{{ article.date_publish | date:'Y-m-d' }}</span>
+                        <span class="viewnum f_r">浏览（{{ article.click_count }}）</span>
+                        <!--一对多关系时加  _set  -->
+                        <span class="pingl f_r">评论（{{ article.comment_set.all.count }}）</span>
+                    </p>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    {#    分页#}
+    {% include 'pagination.html' %}
+{% endblock %}
